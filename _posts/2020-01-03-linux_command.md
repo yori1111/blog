@@ -6,8 +6,7 @@ categories: 技術
 tags: [linux, tar, zip, find, screen, df, top, free, systemctl, service]
 comments: false
 ---
-<img src="{{ site.baseurl}}/images/linux_command/linux.jpg"  width="100%" height="200"><br>
-<br>
+<img src="{{ site.baseurl}}/images/page_headder/linux.jpg"  width="100%" height="300"><br><br>
 ## 1. はじめに
 MacやWindowsなどのGUIメインのOSに慣れ、急にLinuxのターミナルに戻ると、なかなか頭の中に出てこないコマンドやパラメータがあります。  
 筆者がよく使うのに忘れる（？）コマンドを、必要かつ忘れる順に紹介していきます。  
