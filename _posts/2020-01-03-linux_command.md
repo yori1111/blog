@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "linuxで、よく忘れるコマンド"
+title: "Linuxで、よく忘れるコマンド"
 excerpt: ""
 categories: 技術
-tags: [linux, tar, zip, find, screen, df, top, free, systemctl, service]
+tags: [Linux, tar, zip, find, screen, df, top, free, systemctl, service]
 comments: false
 ---
 <img src="{{ site.baseurl}}/images/page_headder/linux.jpg"  width="100%" height="300"><br><br>
@@ -215,4 +215,4 @@ df -h
 筆者がよく忘れるのは、tar.gzの圧縮・解凍パラメータです。  
 ちょっと、圧縮したいだけなのに、おろおろします。  
 
-{% include page_footer_2.md %}
+{% include page_footer.md %}
