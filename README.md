@@ -10,7 +10,7 @@
 [hp]:https://note.mu/kuyo/n/n129f7f3711ce
 [twitter]:https://twitter.com/kury0r
 
-[LINE公式でともだち登録][line]
-[メールで査定][mail]
-[自己紹介][hp]
+[LINE公式でともだち登録][line]  
+[メールで査定][mail]  
+[自己紹介][hp]  
 [@kury0r][twitter]
