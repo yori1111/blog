@@ -1,0 +1,211 @@
+I"�&<p><img src="/blog/images/linux_command/linux.jpg" width="100%" height="1%" /><br />
+<br /></p>
+<h2 id="1-はじめに">1. はじめに</h2>
+<p>MacやWindowsなどのGUIメインのOSに慣れ、急にLinuxのターミナルに戻ると、なかなか頭の中に出てこないコマンドやパラメータがあります。<br />
+筆者がよく使うのに忘れる（？）コマンドを、必要かつ忘れる順に紹介していきます。<br />
+<br /></p>
+
+<h2 id="2-環境">2. 環境</h2>
+<p>本記事は、以下の環境で動作は確認しています。</p>
+
+<blockquote>
+  <p>・Amazon Linux<br />
+・Ubuntu</p>
+</blockquote>
+
+<p><br /></p>
+
+<h2 id="3-いつも忘れてしまうlinuxコマンド">3. いつも忘れてしまうLinuxコマンド</h2>
+<p>大事なのに、なんでいつも出てこないんでしょう(笑)<br />
+忘れたときに、さっと思い出すことを目的としているので、各コマンド・パラメータの説明は割愛しています。<br />
+また、よく使われるパターンと思うもののみを載せています。<br />
+<br /></p>
+
+<h3 id="圧縮解凍">圧縮・解凍</h3>
+<p>tar.gz形式で圧縮します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar cvzf {圧縮ファイル名}.tar.gz {圧縮したいフォルダ}  
+</code></pre></div></div>
+
+<p>tar.gz形式で解凍します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar xvzf {圧縮ファイル名}.tar.gz
+</code></pre></div></div>
+
+<p>zip形式で圧縮します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zip -r {圧縮ファイル名} {圧縮したいフォルダ}  
+</code></pre></div></div>
+
+<p>zip形式で解凍します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unzip {圧縮ファイル名}.zip
+</code></pre></div></div>
+<p><br /></p>
+
+<h3 id="ファイルディレクトリの検索">ファイル・ディレクトリの検索</h3>
+<p>ファイル・ディレクトリを曖昧検索します。<br />
+検索名に、*(ワイルドカード)を使います。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find {検索対象PATH} -name "{検索名}"
+</code></pre></div></div>
+
+<blockquote>
+  <p>例：ルートディレクトリ以下から、「abc」の文字列を含むファイル・ディレクトリを検索する。</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find / -name "*abc*"
+</code></pre></div></div>
+
+<p>ファイルのみを曖昧検索します。<br />
+検索名に、*(ワイルドカード)を使います。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find {検索対象PATH} -name "{検索名}" -type f
+</code></pre></div></div>
+
+<blockquote>
+  <p>例：ルートディレクトリ以下から、拡張子が「txt」のファイルを検索する。</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find / -name "*.txt" -type f
+</code></pre></div></div>
+
+<p>ディレクトリのみを曖昧検索します。<br />
+検索名に、*(ワイルドカード)を使います。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find {検索対象PATH} -name "{検索名}" -type d
+</code></pre></div></div>
+
+<blockquote>
+  <p>例：ルートディレクトリ以下から、「123」の文字列を含むディレクトリを検索する。</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find / -name "*123*" -type -d
+</code></pre></div></div>
+<p><br /></p>
+
+<h3 id="デーモンの起動">デーモンの起動</h3>
+<p>バックグラウンドで起動するプログラムを実行します。<br />
+操作は、ディストリビューションによって違います。<br />
+動いたほうが正解です(笑)</p>
+
+<p>デーモンを起動します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl start {デーモン名}
+</code></pre></div></div>
+<center>or</center>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service {デーモン名} start
+</code></pre></div></div>
+
+<p>デーモンを止めます。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl stop {デーモン名}
+</code></pre></div></div>
+<center>or</center>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service {デーモン名} stop
+</code></pre></div></div>
+
+<p>デーモンを再起動します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart {デーモン名}
+</code></pre></div></div>
+<center>or</center>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service {デーモン名} restart
+</code></pre></div></div>
+
+<p>自動起動の設定です。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl enable {デーモン名}
+</code></pre></div></div>
+<center>or</center>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chkconfig {デーモン名} on
+</code></pre></div></div>
+<p><br /></p>
+
+<h3 id="screen仮想端末">screen（仮想端末）</h3>
+<p>screenを使うと、SSHクライアントを中断しても、操作が再開できます。</p>
+
+<p>screenを開始します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>screen
+</code></pre></div></div>
+
+<p>開始したscreenを中断（デタッチ）します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ctrl + a → d
+※ Ctrlキーを押したまま、aキー → dキーの順番で押下する。
+</code></pre></div></div>
+
+<p>デタッチしたscreenの一覧を表示します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>screen -ls
+</code></pre></div></div>
+
+<p>デタッチしたscreenを再開（アタッチ）します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>screen -r [{ID}]
+</code></pre></div></div>
+
+<p>screenを終了します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exit
+</code></pre></div></div>
+<p><br /></p>
+
+<h3 id="cpuの使用状況">CPUの使用状況</h3>
+<p>CPUの使用状況を確認できます。<br />
+Ctrl + c を押すまでトレースします。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>top
+</code></pre></div></div>
+<p><br /></p>
+
+<h3 id="メモリーの使用状況">メモリーの使用状況</h3>
+<p>スワップ領域を含めた、メモリーの使用状況を確認できます。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>free -wht
+</code></pre></div></div>
+
+<p>メモリー状況をトレースしたい場合は下記を使います。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>free -wht -s {何秒おきに表示} -c {繰り返し数}
+</code></pre></div></div>
+
+<blockquote>
+  <p>例：3秒おきに10回表示する</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>free -wht -s 3 -c 10
+</code></pre></div></div>
+<p><br /></p>
+
+<h3 id="ディスクの使用状況">ディスクの使用状況</h3>
+<p>ディスクの使用を状況できます。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df -h
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="4-終わりに">4. 終わりに</h2>
+<p>筆者がよく忘れるのは、tar.gzの圧縮・解凍パラメータです。<br />
+ちょっと、圧縮したいだけなのに、おろおろします。</p>
+
+<p><br /></p>
+<h3 id="お知らせ">お知らせ</h3>
+<p>もし、この記事を読んでITフリーランスに興味が出たら、ご連絡ください。<br />
+高齢である・転職回数が多い・技術力に自信がない方でも、IT業界の経験が1年半以上あれば、フリーランサーになれるので心配無用です。<br />
+また、フリーランスになれば、給与UP・労働条件の改善・スキルアップが見込めます。<br />
+まずは、LINEもしくはメールを頂ければ、皆様の気になる月額収入（お給料）の査定をいたします。</p>
+
+<p><a href="http://nav.cx/1kschII"><img src="/blog/images/common/line.png" width="32px" /></a> <a href="http://nav.cx/1kschII">LINE公式でともだち登録</a></p>
+
+<p><a href="mailto:gyoren10+freelance@gmail.com?subject=フリーランス査定&amp;body=査定を希望します。%0D%0A%0D%0A※このままご返信ください。%0D%0A後ほど、筆者からメールを送信いたします。"><img src="/blog/images/common/gmail.png" width="32px" /></a> <a href="mailto:gyoren10+freelance@gmail.com?subject=フリーランス査定&amp;body=査定を希望します。%0D%0A%0D%0A※このままご返信ください。%0D%0A後ほど、筆者からメールを送信いたします。">メールで査定</a></p>
+
+<p><br /></p>
+<h3 id="筆者について">筆者について</h3>
+
+<p><a href="https://note.mu/kuyo/n/n129f7f3711ce"><img src="/blog/images/common/self.png" width="32px" /></a> <a href="https://note.mu/kuyo/n/n129f7f3711ce">自己紹介</a></p>
+
+<p><a href="https://twitter.com/kury0r"><img src="/blog/images/common/twitter.png" width="32px" /></a> <a href="https://twitter.com/kury0r">@kury0r</a></p>
+
+:ET

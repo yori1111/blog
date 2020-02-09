@@ -1,0 +1,20 @@
+<div class="sidebar-module about">
+  <h4>{{ site.locales[site.default_locale].Aboutme }}</h4>
+  <img title="{{site.author}}" src="{{ site.baseurl}}/images/common/self.png" alt="{{site.author}}"/>
+  <span>{{site.aboutme}}</span>
+  <br />
+</div>
+
+<div class="sidebar-module">
+  {% if site.ShowContactInfo == "True" %}
+  <a href="mailto:{{site.email}}"><img src="{{ site.baseurl}}/images/common/gmail.png" width="24px"></a>
+  <a href="mailto:{{site.email}}" title="メールする">メールする</a><br>
+
+  <a href="{{site.line_username}}"><img src="{{ site.baseurl}}/images/common/line.png" width="24px"></a>
+  <a href="{{site.line_username}}" title="LINE公式でともだち登録">LINE公式でともだち登録</a><br>
+
+  <a href="https://twitter.com/{{site.twitter_username}}"><img src="{{ site.baseurl}}/images/common/twitter.png" width="24px"></a>
+  <a href="https://twitter.com/{{site.twitter_username}}" title="Twitter: @{{site.twitter_username}}">@{{site.twitter_username}}</a><br>
+  {% endif %}
+
+</div>
