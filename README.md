@@ -1,5 +1,5 @@
-<br>
-### お知らせ
+お知らせ
+---
 筆者は、ITフリーランサーとして開発業務をするかたわら、ハラスメント・薄給・長時間労働に悩むエンジニアのために転職支援をしています。  
 私と同じフリーランサーになって、給与UP・労働条件の改善・スキルアップを目指してみませんか？  
 高齢である・転職回数が多い・技術力に自信がない方でも、IT業界の経験が1年半以上あれば、フリーランサーになれますので、心配せずにご連絡ください。  
@@ -10,13 +10,7 @@
 [hp]:https://note.mu/kuyo/n/n129f7f3711ce
 [twitter]:https://twitter.com/kury0r
 
-[<img src="{{ site.baseurl}}/images/common/line.png" width="32px">][line] [LINE公式でともだち登録][line]
-
-[<img src="{{ site.baseurl}}/images/common/gmail.png" width="32px">][mail] [メールで査定][mail]
-
-<br>
-### 筆者について
-
-[<img src="{{ site.baseurl}}/images/common/self.png" width="32px">][hp] [自己紹介][hp]
-
-[<img src="{{ site.baseurl}}/images/common/twitter.png" width="32px">][twitter] [@kury0r][twitter]
+[LINE公式でともだち登録][line]
+[メールで査定][mail]
+[自己紹介][hp]
+[@kury0r][twitter]
