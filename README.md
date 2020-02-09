@@ -1,71 +1,22 @@
-Freshman21
-==========
+<br>
+### お知らせ
+筆者は、ITフリーランサーとして開発業務をするかたわら、ハラスメント・薄給・長時間労働に悩むエンジニアのために転職支援をしています。  
+私と同じフリーランサーになって、給与UP・労働条件の改善・スキルアップを目指してみませんか？  
+高齢である・転職回数が多い・技術力に自信がない方でも、IT業界の経験が1年半以上あれば、フリーランサーになれますので、心配せずにご連絡ください。  
+まずは、LINEもしくはメールを頂ければ、皆様の気になる月額収入（お給料）の査定をいたします。  
 
-Freshman21 is a Jekyll blog theme, base on theme [Freshman](http://github.com/yulijia/freshman). 
+[line]:http://nav.cx/1kschII
+[mail]:mailto:gyoren10+freelance@gmail.com?subject=フリーランス査定&body=査定を希望します。%0D%0A%0D%0A※このままご返信ください。%0D%0A後ほど、筆者からメールを送信いたします。
+[hp]:https://note.mu/kuyo/n/n129f7f3711ce
+[twitter]:https://twitter.com/kury0r
 
-A tribute to WordPress Theme Twenty-Twelve and Twenty-eleven.
+[<img src="{{ site.baseurl}}/images/common/line.png" width="32px">][line] [LINE公式でともだち登録][line]
 
-Enjoy.
+[<img src="{{ site.baseurl}}/images/common/gmail.png" width="32px">][mail] [メールで査定][mail]
 
+<br>
+### 筆者について
 
-![Screen](http://i.imgur.com/oSp7kacl.png)
+[<img src="{{ site.baseurl}}/images/common/self.png" width="32px">][hp] [自己紹介][hp]
 
-### Version 2.1 update 2016.06.06
-
-- master branch: the simplest template, original version with
-	* Open Graph META Tags
-	* Microdata(schema.org)
-
-- gh-pages branch: master branch with 
-
-	* [google analytics js template](https://github.com/yulijia/freshman21/blob/gh-pages/_includes/google_analytics.js)
-        * [BackToTop js script](https://github.com/yulijia/freshman21/tree/gh-pages/js)
-        * <q>readmore</q> module
-        * [keyboard shortcuts for pagination](http://yulijia.net/freshman21/news/2016/05/24/new-features.html)
-	* font awesome icon
-	* [Google search](https://github.com/yulijia/freshman21/blob/gh-pages/_includes/google_search.js)
-
-Clone master branch: 
-
-` git clone https://github.com/yulijia/freshman21.git -b master --single-branch`
-
-Clone gh-pages branch: 
-
-`git clone https://github.com/yulijia/freshman21.git -b gh-pages --single-branch`
-
-
-### A Summary of Features
-
-- Provide single column and two columns layout
-- Powerful configure file
-- Comments by Disqus
-- Support LaTeX (by MathJax)
-- Syntax highlighting
-- Multiple Languages support 
-    * English
-    * Chinese
-    * Japanese (Contributed by [kokeiro001](https://github.com/kokeiro001))
-    * Polish (Contributed by [Derson5](https://github.com/Derson5))
-    * Korean (Contributed by [Clifford Choi](https://github.com/ulgoon))
-    * Russian (Contributed by [Anton Alekseev](https://github.com/alexeyev))
-    * Turkish (Contributed by [Muhammet Kara](https://github.com/mrkara))
-    * Indonesian (Contributed by [Samsul Ma'arif](https://github.com/samsulmaarif))
-
-### How to install this theme?
-
-```
-# please make sure you have already installed git tools and ruby tools(gem)
-$ gem install sass
-$ gem install jekyll
-$ git clone https://github.com/yulijia/freshman21.git
-$ mv freshman21/ yourblogname.github.io/
-
-```
-
-### Demo
-
-Single column, please see [my own blog](http://yulijia.net/en/)
-
-Two columns, please see the [theme website](http://yulijia.net/freshman21/)
-
-
+[<img src="{{ site.baseurl}}/images/common/twitter.png" width="32px">][twitter] [@kury0r][twitter]
