@@ -1,10 +1,10 @@
 ### Site info:
 title: とあるフリーランサーの日記
-tagline: 管理人の備忘録やフリーランサーについてなど、もろもろの記事を書いてます。
+tagline: 備忘録やフリーランサーについてなど、もろもろ書いてます。
 author: Kurita,Y.
 email: gyoren10@gmail.com
-description: "技術 フリーランス " # You can edit this line in _config.yml. It will appear in your document head meta and in your feed.xml site description
-keywords: "IT プログラミング AWS サーバー フリーランス 転職"
+description: "備忘録やフリーランサーについてなど、もろもろ書いてます。" # You can edit this line in _config.yml. It will appear in your document head meta and in your feed.xml site description
+keywords: "IT プログラミング AWS サーバー フリーランス 転職 Linux"
 baseurl: "/blog" # the subpath of your site, e.g. /blog/
 url: "https://yori1111.github.io/blog/" # the base hostname & protocol for your site
 locale: en_jp
