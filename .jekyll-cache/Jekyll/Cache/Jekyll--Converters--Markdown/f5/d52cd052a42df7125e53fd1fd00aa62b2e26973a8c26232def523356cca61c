@@ -1,4 +1,4 @@
-I"�M<p><img src="/blog/images/page_headder/aws.jpg" alt="" /><br /><br /></p>
+I"�M<p><img src="/blog/images/page_headder/aws.jpg" alt="" /><br /><br /></p>
 
 <h2 id="0-記事一覧">0. 記事一覧</h2>
 
@@ -47,7 +47,7 @@
 
 <p>ログインしたら「サービス」をクリックし、「EC2」を選択する。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 066 - AWS マネジメントコンソール - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 066 - AWS マネジメントコンソール - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <h2 id="ec2インスタンスの作成">EC2インスタンスの作成</h2>
 <h2 id="インスタンスの作成">・インスタンスの作成</h2>
@@ -63,13 +63,13 @@
 <h2 id="インスタンスタイプの選択">・インスタンスタイプの選択</h2>
 <p>「t2.micro」を選択し、「次の手順: インスタンスの詳細の設定」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 069 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 069 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <h2 id="インスタンスの詳細の設定">・インスタンスの詳細の設定</h2>
 <p>S3を使用する時にEC2から接続できないと不便なので、IAMロールを作成する。<br />
 「新しい IAM ロールの作成」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 070 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 070 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <h2 id="ロールの作成">・ロールの作成</h2>
 <p>「ロールの作成」をクリックする。</p>
@@ -115,24 +115,24 @@
 <h2 id="インスタンスの詳細の設定続き">・インスタンスの詳細の設定（続き）</h2>
 <p>「IAM ロール」に、先ほど作成した「ロール」を選択し、「次の手順: ストレージの追加」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 083 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 083 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <h2 id="ストレージの追加">・ストレージの追加</h2>
 <p>「サイズ (GiB)」を入力し、「次の手順: タグの追加」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 084 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 084 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <p>※無料枠で使用したい場合は、ボリュームタイプに「汎用SSD(gp2)」を選択し、サイズを「30」GiBにする。</p>
 
 <h2 id="タグの追加-1">・タグの追加</h2>
 <p>何も設定せずに、「次の手順: セキュリティグループの設定」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 085 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 085 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <h2 id="セキュリティグループの設定">・セキュリティグループの設定</h2>
 <p>セキュリティグループを以下の通りに設定する。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 086 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 086 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <blockquote>
   <p>・「セキュリティグループ名」を入力する。<br />
@@ -146,12 +146,12 @@
 <h2 id="インスタンス作成の確認">・インスタンス作成の確認</h2>
 <p>設定内容を確認し、「起動」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 087 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 087 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <h2 id="キーペアの選択">・キーペアの選択</h2>
 <p>以下の通りに設定する。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 090 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 090 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <blockquote>
   <p>・「新しいキーペアの作成」を選択する。<br />
@@ -166,7 +166,7 @@
 <h2 id="作成ステータス">・作成ステータス</h2>
 <p>「インスタンスの表示」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 092 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 092 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <h2 id="ssh接続">SSH接続</h2>
 <p>EC２への接続方法は、以下となる。</p>
