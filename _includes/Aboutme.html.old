@@ -1,0 +1,28 @@
+<div class="sidebar-module about">
+  <h4>{{ site.locales[site.default_locale].Aboutme }}</h4>
+  <img title="{{site.author}}" src="{{ site.baseurl}}/images/common/self.png" alt="{{site.author}}"/>
+  <span>{{site.aboutme}}</span>
+  <br />
+</div>
+
+<div class="sidebar-module">
+  {% if site.ShowContactInfo == "True" %}
+  <a href="mailto:{{site.email}}"><img src="{{ site.baseurl}}/images/common/gmail.png" width="24px"></a>
+  <a href="mailto:{{site.email}}" title="メールする">メールする</a><br>
+
+  <a href="{{site.line_username}}"><img src="{{ site.baseurl}}/images/common/line.png" width="24px"></a>
+  <a href="{{site.line_username}}" title="LINE公式でともだち登録">LINE公式でともだち登録</a><br>
+
+  <a href="https://twitter.com/{{site.twitter_username}}"><img src="{{ site.baseurl}}/images/common/twitter.png" width="24px"></a>
+  <a href="https://twitter.com/{{site.twitter_username}}" title="Twitter: @{{site.twitter_username}}">@{{site.twitter_username}}</a><br><br>
+
+  <div class="line-it-button" data-lang="ja" data-type="friend" data-lineid="736jrlfx" style="display: none;"></div>
+ <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+
+  <a href="https://twitter.com/messages/compose?recipient_id=1165999852842442753&ref_src=twsrc%5Etfw" class="twitter-dm-button" data-size="small" data-text="転職に興味があるので、話を聞かせてください。" data-show-screen-name="false" data-screen-name="kury0r" data-show-count="false">Message @kury0r</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><br><br>
+
+  <a href="https://twitter.com/kury0r?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="small" data-show-screen-name="false" data-show-count="false">Follow @kury0r</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  {% endif %}
+
+</div>
