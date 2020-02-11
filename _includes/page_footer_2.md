@@ -1,4 +1,4 @@
-<br>
+<br><center>◇◇◇◇◇◇◇◇◇◇</center><br>
 ### お知らせ
 もし、この記事を読んでITフリーランスに興味が出たら、ご連絡ください。  
 高齢である・転職回数が多い・技術力に自信がない方でも、IT業界の経験が1年半以上あれば、フリーランサーになれるので心配無用です。  
@@ -7,7 +7,7 @@
 
 [line]:http://nav.cx/1kschII
 [mail]:mailto:gyoren10+freelance@gmail.com?subject=フリーランス査定&body=査定を希望します。%0D%0A%0D%0A※このままご返信ください。%0D%0A後ほど、筆者からメールを送信いたします。
-[hp]:https://note.mu/kuyo/n/n129f7f3711ce
+[hp]:{{ site.baseurl}}/%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B/2019/09/01/hello1.html
 [twitter]:https://twitter.com/kury0r
 
 [<img src="{{ site.baseurl}}/images/common/line.png" width="32px">][line] [LINE公式でともだち登録][line]

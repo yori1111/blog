@@ -1,45 +1,57 @@
-I"�M<p><img src="/blog/images/page_headder/aws.jpg" alt="" /><br /><br /></p>
+I".Q<p><img src="/blog/images/page_headder/aws.jpg" alt="" /><br /><br /></p>
 
 <h2 id="0-記事一覧">0. 記事一覧</h2>
 
-<p><a href="https://note.mu/kuyo/n/n49b56b1448b1">初心者のためのAWSの使い方（1.初期設定編）</a><br />
-<a href="https://note.mu/kuyo/n/n1c7f3dbde56a">初心者のためのAWSの使い方（2.S3構築編）</a>【前の記事】<br />
-初心者のためのAWSの使い方（3.EC2構築編）<br />
-<a href="https://note.mu/kuyo/n/n44483fd3922d">初心者のためのAWSの使い方（4.Cloud9導入編）</a></p>
+<p><a href="/blog/%E6%8A%80%E8%A1%93/2019/10/01/AWS1.html">初心者のためのAWSの使い方①　- 初期設定編 -</a><br />
+<a href="/blog/%E6%8A%80%E8%A1%93/2019/11/01/AWS2.html">初心者のためのAWSの使い方②　-  S3構築編 -</a><br />
+初心者のためのAWSの使い方③　- EC2構築編 -<br />
+<a href="/blog/%E6%8A%80%E8%A1%93/2020/01/01/AWS4.html">初心者のためのAWSの使い方④　- Cloud9導入編 -</a><br />
+<br /></p>
 
 <h2 id="1-はじめに">1. はじめに</h2>
 
 <p>無料で始められるAWSですが、いざ始めようとすると、「まず何をすれば良いの？」となったりします。<br />
 そこで、初期設定・S3・EC2・Cloud9の設定について、まとめた記事を作りました。<br />
-<a href="https://note.mu/kuyo/n/n49b56b1448b1">1.初期設定編</a>・<a href="https://note.mu/kuyo/n/n1c7f3dbde56a">2.S3構築編</a>・<a href="https://note.mu/kuyo/n/nf61f02fafc6a">3.EC2構築編</a>と長編記事ですが、上から下へと手順通り進めていけば、AWS環境が出来るかと思います。<br />
-また、<a href="https://note.mu/kuyo/n/n44483fd3922d">4.Cloud9導入編</a>は、お好みでどうぞ。<br />
+<a href="/blog/%E6%8A%80%E8%A1%93/2019/10/01/AWS1.html">1.初期設定編</a>・<a href="/blog/%E6%8A%80%E8%A1%93/2019/11/01/AWS2.html">2.S3構築編</a>・<a href="/blog/%E6%8A%80%E8%A1%93/2019/12/01/AWS3.html">3.EC2構築編</a>と長編記事ですが、上から下へと手順通り進めていけば、AWS環境が出来るかと思います。<br />
+また、<a href="/blog/%E6%8A%80%E8%A1%93/2020/01/01/AWS4.html">4.Cloud9導入編</a>は、お好みでどうぞ。<br />
 なお、本記事は「とりあえず、AWS環境を構築したい！」を目的としているため、各設定項目の説明は割愛させてもらってます。</p>
 
-<p>では、<a href="https://note.mu/kuyo/n/nf61f02fafc6a">3.EC2構築編</a>の開始です！</p>
+<p>では、<a href="/blog/%E6%8A%80%E8%A1%93/2019/12/01/AWS3.html">3.EC2構築編</a>の開始です！<br />
+<br /></p>
 
 <h2 id="2-前提">2. 前提</h2>
 <p>本記事は、AWS 無料利用枠を利用しています。<br />
 本記事の手順を実施するには、以下の記事で設定した環境が必要です。</p>
 
 <blockquote>
-  <p>・<a href="https://note.mu/kuyo/n/n49b56b1448b1">初心者のためのAWSの使い方（1.初期設定編）</a><br />
-・<a href="https://note.mu/kuyo/n/n1c7f3dbde56a">初心者のためのAWSの使い方（2.S3構築編）</a></p>
+  <ul>
+    <li><a href="/blog/%E6%8A%80%E8%A1%93/2019/10/01/AWS1.html">初心者のためのAWSの使い方（1.初期設定編）</a></li>
+    <li><a href="/blog/%E6%8A%80%E8%A1%93/2019/11/01/AWS2.html">初心者のためのAWSの使い方（2.S3構築編）</a></li>
+  </ul>
 </blockquote>
 
 <p>本記事の手順を実施するにあたり、以下の知識が必要です。</p>
 
 <blockquote>
-  <p>・ターミナル・SSHクライアントの操作<br />
-・linuxコマンド（ls,cd,viなど）</p>
+  <ul>
+    <li>ターミナル・SSHクライアントの操作</li>
+    <li>linuxコマンド（ls,cd,viなど）</li>
+  </ul>
 </blockquote>
+
+<p><br /></p>
 
 <h2 id="3-環境">3. 環境</h2>
 <p>本記事は、以下の環境でAWSを構築しています。</p>
 
 <blockquote>
-  <p>・PC：macOS Mojave 10.14<br />
-・ブラウザ：Google Chrome</p>
+  <ul>
+    <li>PC：macOS Mojave 10.14</li>
+    <li>ブラウザ：Google Chrome</li>
+  </ul>
 </blockquote>
+
+<p><br /></p>
 
 <h2 id="4-ec2の構築">4. EC2の構築</h2>
 <p>EC2は、AWSの仮想サーバーです。<br />
@@ -47,155 +59,205 @@
 
 <p>ログインしたら「サービス」をクリックし、「EC2」を選択する。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 066 - AWS マネジメントコンソール - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 066 - AWS マネジメントコンソール - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
 <h2 id="ec2インスタンスの作成">EC2インスタンスの作成</h2>
-<h2 id="インスタンスの作成">・インスタンスの作成</h2>
+<h3 id="インスタンスの作成">インスタンスの作成</h3>
 <p>「インスタンスの作成」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 067 - EC2 Management Console - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 067 - EC2 Management Console - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="amiの選択">・AMIの選択</h2>
+<h3 id="amiの選択">AMIの選択</h3>
 <p>「Amazon Linux 2 AMI (HVM), SSD Volume Type」を選択する。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 068 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 068 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="インスタンスタイプの選択">・インスタンスタイプの選択</h2>
+<h3 id="インスタンスタイプの選択">インスタンスタイプの選択</h3>
 <p>「t2.micro」を選択し、「次の手順: インスタンスの詳細の設定」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 069 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 069 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="インスタンスの詳細の設定">・インスタンスの詳細の設定</h2>
+<h3 id="インスタンスの詳細の設定">インスタンスの詳細の設定</h3>
 <p>S3を使用する時にEC2から接続できないと不便なので、IAMロールを作成する。<br />
 「新しい IAM ロールの作成」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 070 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 070 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="ロールの作成">・ロールの作成</h2>
+<h3 id="ロールの作成">ロールの作成</h3>
 <p>「ロールの作成」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 071 - IAM Management Console - console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 071 - IAM Management Console - console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="信頼されたエンティティの種類を選択">・信頼されたエンティティの種類を選択</h2>
+<h3 id="信頼されたエンティティの種類を選択">信頼されたエンティティの種類を選択</h3>
 <p>以下の通り設定する。</p>
 
 <p><img src="/blog/images/aws3/FireShot Capture 079 - IAM Management Console - console.aws.amazon.com.png" alt="" /></p>
 
 <blockquote>
-  <p>・「AWS サービス」を選択する。<br />
-・「EC2」を選択する。</p>
+  <ul>
+    <li>「AWS サービス」を選択する。</li>
+    <li>「EC2」を選択する。</li>
+  </ul>
 </blockquote>
 
-<p>「次のステップ: アクセス権限」をクリックする。</p>
+<p>「次のステップ: アクセス権限」をクリックする。<br />
+<br /></p>
 
-<h2 id="アタッチするアクセス権限ポリシー">・アタッチするアクセス権限ポリシー</h2>
+<h3 id="アタッチするアクセス権限ポリシー">アタッチするアクセス権限ポリシー</h3>
 <p>以下の通り設定する。</p>
 
 <p><img src="/blog/images/aws3/FireShot Capture 080 - IAM Management Console - console.aws.amazon.com.png" alt="" /></p>
 
 <blockquote>
-  <p>・ポリシーのフィルタに、「s3」を入力する。<br />
-・ポリシーに、「AmazonS3FullAccess」を選択する。</p>
+  <ul>
+    <li>ポリシーのフィルタに、「s3」を入力する。</li>
+    <li>ポリシーに、「AmazonS3FullAccess」を選択する。</li>
+  </ul>
 </blockquote>
 
-<p>「次のステップ: タグ」をクリックする。</p>
+<p>「次のステップ: タグ」をクリックする。<br />
+<br /></p>
 
-<h2 id="タグの追加">・タグの追加</h2>
+<h3 id="タグの追加">タグの追加</h3>
 <p>何も設定せずに、「次のステップ: 確認」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 081 - IAM Management Console - console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 081 - IAM Management Console - console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="確認">・確認</h2>
+<h3 id="確認">確認</h3>
 <p>「ロール名」を入力し、「ロールの作成」をクリックする。</p>
 
 <p><img src="/blog/images/aws3/FireShot Capture 082 - IAM Management Console - console.aws.amazon.com.png" alt="" /></p>
 
-<p>「インスタンスの詳細の設定」に戻る。</p>
+<p>「インスタンスの詳細の設定」に戻る。<br />
+<br /></p>
 
-<h2 id="インスタンスの詳細の設定続き">・インスタンスの詳細の設定（続き）</h2>
+<h3 id="インスタンスの詳細の設定続き">インスタンスの詳細の設定（続き）</h3>
 <p>「IAM ロール」に、先ほど作成した「ロール」を選択し、「次の手順: ストレージの追加」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 083 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 083 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="ストレージの追加">・ストレージの追加</h2>
+<h3 id="ストレージの追加">ストレージの追加</h3>
 <p>「サイズ (GiB)」を入力し、「次の手順: タグの追加」をクリックする。</p>
 
 <p><img src="/blog/images/aws3/FireShot Capture 084 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
-<p>※無料枠で使用したい場合は、ボリュームタイプに「汎用SSD(gp2)」を選択し、サイズを「30」GiBにする。</p>
+<p>無料枠で使用したい場合は、ボリュームタイプに「汎用SSD(gp2)」を選択し、サイズを「30」GiBにする。<br />
+<br /></p>
 
-<h2 id="タグの追加-1">・タグの追加</h2>
+<h3 id="タグの追加-1">タグの追加</h3>
 <p>何も設定せずに、「次の手順: セキュリティグループの設定」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 085 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 085 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="セキュリティグループの設定">・セキュリティグループの設定</h2>
+<h3 id="セキュリティグループの設定">セキュリティグループの設定</h3>
 <p>セキュリティグループを以下の通りに設定する。</p>
 
 <p><img src="/blog/images/aws3/FireShot Capture 086 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <blockquote>
-  <p>・「セキュリティグループ名」を入力する。<br />
-・「説明」を入力する。<br />
-・SSHのルールの「ポート範囲」を入力する。<br />
-・SSHのルールの「ソース」は、「任意」を選択する。</p>
+  <ul>
+    <li>「セキュリティグループ名」を入力する。</li>
+    <li>「説明」を入力する。</li>
+    <li>SSHのルールの「ポート範囲」を入力する。</li>
+    <li>SSHのルールの「ソース」は、「任意」を選択する。</li>
+  </ul>
 </blockquote>
 
-<p>「確認と作成」をクリックする。</p>
+<p>「確認と作成」をクリックする。<br />
+<br /></p>
 
-<h2 id="インスタンス作成の確認">・インスタンス作成の確認</h2>
+<h3 id="インスタンス作成の確認">インスタンス作成の確認</h3>
 <p>設定内容を確認し、「起動」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 087 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 087 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="キーペアの選択">・キーペアの選択</h2>
+<h3 id="キーペアの選択">キーペアの選択</h3>
 <p>以下の通りに設定する。</p>
 
 <p><img src="/blog/images/aws3/FireShot Capture 090 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <blockquote>
-  <p>・「新しいキーペアの作成」を選択する。<br />
-・「キーペア名」を入力する。</p>
+  <ul>
+    <li>「新しいキーペアの作成」を選択する。</li>
+    <li>「キーペア名」を入力する。</li>
+  </ul>
 </blockquote>
 
 <p>「キーペアのダウンロード」をクリックし、pemを保存する。<br />
-※SSH接続で使用するので消さないこと</p>
+なお、ダウンローしたファイルは、SSH接続で使用するので消さないこと。</p>
 
-<p>「インスタンスの作成」をクリックする。</p>
+<p>「インスタンスの作成」をクリックする。<br />
+<br /></p>
 
-<h2 id="作成ステータス">・作成ステータス</h2>
+<h3 id="作成ステータス">作成ステータス</h3>
 <p>「インスタンスの表示」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 092 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 092 - インスタンスウィザードを起動 - EC2 Management Console_ - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
 <h2 id="ssh接続">SSH接続</h2>
-<p>EC２への接続方法は、以下となる。</p>
+<p>EC２への接続方法は、以下となる。<br />
+<br /></p>
 
-<h2 id="接続先の確認">・接続先の確認</h2>
-<p>EC2へ接続するための接続方法を確認する。</p>
+<h3 id="接続先の確認">接続先の確認</h3>
+<p>EC2へ接続するための接続方法を確認する。<br />
+<br /></p>
 
-<p><code class="highlighter-rouge">接続先の確認</code><br />
-「サービス」を選択し、「EC2」をクリックする。</p>
+<h4 id="接続先の確認-1">接続先の確認</h4>
 
-<p><img src="/blog/images/aws3/FireShot Capture 093 - EC2 Management Console - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p>「サービス」を選択し、「EC2」をクリックする。</p>
 
-<p><code class="highlighter-rouge">実行中のインスタンス</code><br />
-「実行中のインスタンス」をクリックする。</p>
+<p><img src="/blog/images/aws3/FireShot Capture 093 - EC2 Management Console - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 094 - EC2 Management Console - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<h4 id="実行中のインスタンス">実行中のインスタンス</h4>
 
-<p><code class="highlighter-rouge">接続の確認</code><br />
-「接続」をクリックする。</p>
+<p>「実行中のインスタンス」をクリックする。</p>
 
-<p><img src="/blog/images/aws3/FireShot Capture 095 - インスタンス - EC2 Management Console - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws3/FireShot Capture 094 - EC2 Management Console - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<p><code class="highlighter-rouge">接続方法の確認</code><br />
-接続方法の確認は以下となる。</p>
+<h4 id="接続の確認">接続の確認</h4>
+
+<p>「接続」をクリックする。</p>
+
+<p><img src="/blog/images/aws3/FireShot Capture 095 - インスタンス - EC2 Management Console - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
+
+<h4 id="接続方法の確認">接続方法の確認</h4>
+
+<p>接続方法の確認は以下となる。</p>
 
 <p><img src="/blog/images/aws3/FireShot Capture 096 - インスタンス - EC2 Management Console - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <blockquote>
-  <p>・接続先に「スタンドアロン SSH クライアント」を選択する。</p>
+  <ul>
+    <li>接続先に「スタンドアロン SSH クライアント」を選択する。</li>
+  </ul>
 </blockquote>
 
 <p>「例:」のコマンド</p>
@@ -206,9 +268,10 @@
 
 <p>が、SSHの接続コマンドとなる。</p>
 
-<p>「閉じる」をクリックする。</p>
+<p>「閉じる」をクリックする。<br />
+<br /></p>
 
-<h2 id="sshクライントの作業">・SSHクライントの作業</h2>
+<h3 id="sshクライントの作業">SSHクライントの作業</h3>
 <p>ターミナルにて、「キーペアの選択」で作成したキーペア（pemファイル）を「.sshフォルダ」に配置する。</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir ~/.ssh
@@ -221,37 +284,38 @@ $ chmod 400 ~/.ssh/{キーペア名}.pem
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh -i "~/.ssh/{キーペア名}.pem" ec2-user@{パブリックDNS}
 </code></pre></div></div>
+<p><br /></p>
 
 <h2 id="s3のマウント">S3のマウント</h2>
 <p>EBSだけでは、データの保管容量に不安が残るので、S3を使用する。
-<a href="https://github.com/kahing/goofys">goofys</a>を使用し、S3をマウントする。</p>
+<a href="https://github.com/kahing/goofys">goofys</a>を使用し、S3をマウントする。<br />
+<br /></p>
 
-<h2 id="sshでec2に接続">・SSHでEC2に接続</h2>
-
+<h3 id="sshでec2に接続">SSHでEC2に接続</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh -i "~/.ssh/{キーペア名}.pem" ec2-user@{パブリックDNS}
 </code></pre></div></div>
+<p><br /></p>
 
-<h2 id="go-と-fuse-のインストール">・Go と FUSE のインストール</h2>
-
+<h3 id="go-と-fuse-のインストール">Go と FUSE のインストール</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo yum install -y golang fuse
 </code></pre></div></div>
+<p><br /></p>
 
-<h2 id="goofysのバイナリーを取得">・goofysのバイナリーを取得</h2>
-
+<h3 id="goofysのバイナリーを取得">goofysのバイナリーを取得</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd /usr/local/bin
 $ sudo wget https://github.com/kahing/goofys/releases/latest/download/goofys
 $ sudo chmod 755 goofys
 </code></pre></div></div>
+<p><br /></p>
 
-<h2 id="s3を手動マウント">・S3を手動マウント</h2>
-
+<h3 id="s3を手動マウント">S3を手動マウント</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir ~/s3
 $ goofys {s3バケット名} ~/s3
 </code></pre></div></div>
+<p><br /></p>
 
-<h2 id="s3を自動マウント">・S3を自動マウント</h2>
+<h3 id="s3を自動マウント">S3を自動マウント</h3>
 <p>idコマンドで、uid と gid を確認する。</p>
-
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ id
 uid=1000(ec2-user) gid=1000(ec2-user) groups=1000(ec2-user),4(adm),10(wheel),190(systemd-journal)
 </code></pre></div></div>
@@ -275,16 +339,20 @@ tmpfs            492M     0  492M    0% /sys/fs/cgroup
 {バケット名}        1.0P     0  1.0P    0% /home/ec2-user/s3
 tmpfs             99M     0   99M    0% /run/user/1000
 </code></pre></div></div>
+<p><br /></p>
+
 <h2 id="スワップの確保">スワップの確保</h2>
 <p>無料枠のインスタンスでは、sparkなどのメモリを必要とするアプリケーションの起動が難しい。<br />
-スワップを追加し、メモリ不足を回避する。</p>
+スワップを追加し、メモリ不足を回避する。<br />
+<br /></p>
 
-<h2 id="sshでec2に接続-1">・SSHでEC2に接続</h2>
+<h3 id="sshでec2に接続-1">SSHでEC2に接続</h3>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh -i "~/.ssh/{キーペア名}.pem" ec2-user@{パブリックDNS}
 </code></pre></div></div>
+<p><br /></p>
 
-<h2 id="スワップの作成">・スワップの作成</h2>
+<h3 id="スワップの作成">スワップの作成</h3>
 <p>2GBのスワップファイルを作成する。</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
@@ -297,8 +365,9 @@ $ sudo swapon /swapfile
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vi /etc/fstab
 /swapfile none swap sw 0 0
 </code></pre></div></div>
+<p><br /></p>
 
-<h2 id="スワップ頻度の変更">・スワップ頻度の変更</h2>
+<h3 id="スワップ頻度の変更">スワップ頻度の変更</h3>
 <p>頻繁にスワップされると、動作が重くなるので頻度を変更する。</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo su
@@ -317,35 +386,36 @@ Swap:          2.0G          0B        2.0G
 $ cat /proc/sys/vm/swappiness
 10
 </code></pre></div></div>
+<p><br /></p>
 
 <h2 id="docker">Docker</h2>
-<p>必須ではないが、あると便利なので、Dockerのインストールをする。</p>
+<p>必須ではないが、あると便利なので、Dockerのインストールをする。<br />
+<br /></p>
 
-<h2 id="sshでec2に接続-2">・SSHでEC2に接続</h2>
-
+<h3 id="sshでec2に接続-2">SSHでEC2に接続</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh -i "~/.ssh/{キーペア名}.pem" ec2-user@{パブリックDNS}
 </code></pre></div></div>
+<p><br /></p>
 
-<h2 id="dockerのインストール">・Dockerのインストール</h2>
-
+<h3 id="dockerのインストール">Dockerのインストール</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo yum install -y docker
 </code></pre></div></div>
-
 <p>Dockerサービスを起動する。</p>
-
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo service docker start
 </code></pre></div></div>
+<p><br /></p>
 
 <h2 id="5-終わりに">5. 終わりに</h2>
 <p>EC2の構築は、以上です。<br />
 これで、仮想サーバーの環境が整いました。<br />
-<a href="https://note.mu/kuyo/n/n49b56b1448b1">1.初期設定編</a>・<a href="https://note.mu/kuyo/n/n1c7f3dbde56a">2.S3構築編</a>・<a href="https://note.mu/kuyo/n/nf61f02fafc6a">3.EC2構築編</a>が完了し、仮想サーバーに大容量外付けディスクが付いた環境が手に入ったかと思います。<br />
-次に紹介する「<a href="https://note.mu/kuyo/n/n44483fd3922d">4.Cloud9の導入</a>」は、やらなくても構いませんが、開発を行う人には便利かと思うので紹介します。</p>
+<a href="/blog/%E6%8A%80%E8%A1%93/2019/10/01/AWS1.html">1.初期設定編</a>・<a href="/blog/%E6%8A%80%E8%A1%93/2019/11/01/AWS2.html">2.S3構築編</a>・<a href="/blog/%E6%8A%80%E8%A1%93/2019/12/01/AWS3.html">3.EC2構築編</a>が完了し、仮想サーバーに大容量外付けディスクが付いた環境が手に入ったかと思います。<br />
+次に紹介する「<a href="/blog/%E6%8A%80%E8%A1%93/2020/01/01/AWS4.html">4.Cloud9の導入</a>」は、やらなくても構いませんが、開発を行う人には便利かと思うので紹介します。<br />
+<br /></p>
 
 <h2 id="6-引用参考元">6. 引用・参考元</h2>
 <p><a href="https://aws.amazon.com/jp/">https://aws.amazon.com/jp/</a></p>
 
-<p><br /></p>
+<p><br /><center>◇◇◇◇◇◇◇◇◇◇</center><br /></p>
 <h3 id="お知らせ">お知らせ</h3>
 <p>筆者は、ITフリーランサーとして開発業務をするかたわら、ハラスメント・薄給・長時間労働に悩むエンジニアのために転職支援をしています。<br />
 私と同じフリーランサーになって、給与UP・労働条件の改善・スキルアップを目指してみませんか？<br />
@@ -359,7 +429,7 @@ $ cat /proc/sys/vm/swappiness
 <p><br /></p>
 <h3 id="筆者について">筆者について</h3>
 
-<p><a href="https://note.mu/kuyo/n/n129f7f3711ce"><img src="/blog/images/common/self.png" width="32px" /></a> <a href="https://note.mu/kuyo/n/n129f7f3711ce">自己紹介</a></p>
+<p><a href="/blog/%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B/2019/09/01/hello1.html"><img src="/blog/images/common/self.png" width="32px" /></a> <a href="/blog/%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B/2019/09/01/hello1.html">自己紹介</a></p>
 
 <p><a href="https://twitter.com/kury0r"><img src="/blog/images/common/twitter.png" width="32px" /></a> <a href="https://twitter.com/kury0r">@kury0r</a></p>
 

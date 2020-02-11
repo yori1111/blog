@@ -1,44 +1,56 @@
-I"�<p><img src="/blog/images/page_headder/aws.jpg" alt="" /><br /><br /></p>
+I"Z<p><img src="/blog/images/page_headder/aws.jpg" alt="" /><br /><br /></p>
 
 <h2 id="0-記事一覧">0. 記事一覧</h2>
 
-<p><a href="https://note.mu/kuyo/n/n49b56b1448b1">初心者のためのAWSの使い方（1.初期設定編）</a>【前の記事】<br />
-初心者のためのAWSの使い方（2.S3構築編）<br />
-<a href="https://note.mu/kuyo/n/nf61f02fafc6a">初心者のためのAWSの使い方（3.EC2構築編）</a><br />
-<a href="https://note.mu/kuyo/n/n44483fd3922d">初心者のためのAWSの使い方（4.Cloud9導入編）</a></p>
+<p><a href="/blog/%E6%8A%80%E8%A1%93/2019/10/01/AWS1.html">初心者のためのAWSの使い方①　- 初期設定編 -</a><br />
+初心者のためのAWSの使い方②　-  S3構築編 -<br />
+<a href="/blog/%E6%8A%80%E8%A1%93/2019/12/01/AWS3.html">初心者のためのAWSの使い方③　- EC2構築編 -</a><br />
+<a href="/blog/%E6%8A%80%E8%A1%93/2020/01/01/AWS4.html">初心者のためのAWSの使い方④　- Cloud9導入編 -</a><br />
+<br /></p>
 
 <h2 id="1-はじめに">1. はじめに</h2>
 
 <p>無料で始められるAWSですが、いざ始めようとすると、「まず何をすれば良いの？」となったりします。<br />
 そこで、初期設定・S3・EC2・Cloud9の設定について、まとめた記事を作りました。<br />
-<a href="https://note.mu/kuyo/n/n49b56b1448b1">1.初期設定編</a>・<a href="https://note.mu/kuyo/n/n1c7f3dbde56a">2.S3構築編</a>・<a href="https://note.mu/kuyo/n/nf61f02fafc6a">3.EC2構築編</a>と長編記事ですが、上から下へと手順通り進めていけば、AWS環境が出来るかと思います。<br />
-また、<a href="https://note.mu/kuyo/n/n44483fd3922d">4.Cloud9導入編</a>は、お好みでどうぞ。<br />
+<a href="/blog/%E6%8A%80%E8%A1%93/2019/10/01/AWS1.html">1.初期設定編</a>・<a href="/blog/%E6%8A%80%E8%A1%93/2019/11/01/AWS2.html">2.S3構築編</a>・<a href="/blog/%E6%8A%80%E8%A1%93/2019/12/01/AWS3.html">3.EC2構築編</a>と長編記事ですが、上から下へと手順通り進めていけば、AWS環境が出来るかと思います。<br />
+また、<a href="/blog/%E6%8A%80%E8%A1%93/2020/01/01/AWS4.html">4.Cloud9導入編</a>は、お好みでどうぞ。<br />
 なお、本記事は「とりあえず、AWS環境を構築したい！」を目的としているため、各設定項目の説明は割愛させてもらってます。</p>
 
-<p>では、<a href="https://note.mu/kuyo/n/n1c7f3dbde56a">2.S3構築編</a>の開始です！</p>
+<p>では、<a href="/blog/%E6%8A%80%E8%A1%93/2019/11/01/AWS2.html">2.S3構築編</a>の開始です！<br />
+<br /></p>
 
 <h2 id="2-前提">2. 前提</h2>
 <p>本記事は、AWS 無料利用枠を利用しています。<br />
 本記事の手順を実施するには、以下の記事で設定した環境が必要です。</p>
 
 <blockquote>
-  <p>・<a href="https://note.mu/kuyo/n/n49b56b1448b1">初心者のためのAWSの使い方（1.初期設定編）</a></p>
+  <ul>
+    <li><a href="/blog/%E6%8A%80%E8%A1%93/2019/10/01/AWS1.html">初心者のためのAWSの使い方（1.初期設定編）</a></li>
+  </ul>
 </blockquote>
 
 <p>本記事の手順を実施するにあたり、以下の知識が必要です。</p>
 
 <blockquote>
-  <p>・ターミナル・SSHクライアントの操作<br />
-・linuxコマンド（ls,cd,viなど）</p>
+  <ul>
+    <li>ターミナル・SSHクライアントの操作</li>
+    <li>linuxコマンド（ls,cd,viなど）</li>
+  </ul>
 </blockquote>
+
+<p><br /></p>
 
 <h2 id="3-環境">3. 環境</h2>
 <p>本記事は、以下の環境でAWSを構築しています。</p>
 
 <blockquote>
-  <p>・PC：macOS Mojave 10.14<br />
-・ブラウザ：Google Chrome</p>
+  <ul>
+    <li>PC：macOS Mojave 10.14</li>
+    <li>ブラウザ：Google Chrome</li>
+  </ul>
 </blockquote>
+
+<p><br /></p>
 
 <h2 id="4-s3の構築">4. S3の構築</h2>
 <p>S3は、AWSのストレージサービスです。<br />
@@ -46,15 +58,19 @@
 
 <p>ログインしたら「サービス」をクリックし、「S3」を選択する。</p>
 
-<p><img src="/blog/images/aws2/FireShot Capture 098 - AWS マネジメントコンソール - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws2/FireShot Capture 098 - AWS マネジメントコンソール - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
 <h2 id="s3の設定">S3の設定</h2>
-<h2 id="-バケットの作成">・ バケットの作成</h2>
+<h3 id="バケットの作成">バケットの作成</h3>
 <p>「バケットを作成する」をクリックする。</p>
 
-<p><img src="/blog/images/aws2/FireShot Capture 099 - S3 Management Console - s3.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws2/FireShot Capture 099 - S3 Management Console - s3.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="-名前とリージョンの設定">・ 名前とリージョンの設定</h2>
+<h3 id="名前とリージョンの設定">名前とリージョンの設定</h3>
 <p>名前とリージョンを以下の通り設定する。</p>
 
 <p><img src="/blog/images/aws2/FireShot Capture 100 - S3 Management Console - s3.console.aws.amazon.com.png" alt="" /></p>
@@ -64,31 +80,39 @@
 ・リージョンは、「アジアパシフィック（東京）」を選択する。</p>
 </blockquote>
 
-<p>「次へ」をクリックする。</p>
+<p>「次へ」をクリックする。<br />
+<br /></p>
 
-<h2 id="-オプションの設定">・ オプションの設定</h2>
+<h3 id="オプションの設定">オプションの設定</h3>
 <p>何も設定せずに「次へ」をクリックする。</p>
 
-<p><img src="/blog/images/aws2/FireShot Capture 101 - S3 Management Console - s3.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws2/FireShot Capture 101 - S3 Management Console - s3.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="-アクセス許可の設定">・ アクセス許可の設定</h2>
+<h3 id="アクセス許可の設定">アクセス許可の設定</h3>
 <p>何も設定せずに「次へ」をクリックする。</p>
 
-<p><img src="/blog/images/aws2/FireShot Capture 102 - S3 Management Console - s3.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws2/FireShot Capture 102 - S3 Management Console - s3.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="-バケットの作成-1">・ バケットの作成</h2>
+<h3 id="バケットの作成-1">バケットの作成</h3>
 <p>内容を確認し、「バケットの作成」をクリックする。
-<img src="/blog/images/aws2/FireShot Capture 103 - S3 Management Console - s3.console.aws.amazon.com.png" alt="" /></p>
+<img src="/blog/images/aws2/FireShot Capture 103 - S3 Management Console - s3.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
 <h2 id="5-終わりに">5. 終わりに</h2>
 <p>S3の構築は、以上です。<br />
 これで、ファイルストレージ環境が整いました。<br />
-次は、<a href="https://note.mu/kuyo/n/nf61f02fafc6a">3.EC2構築編</a>です。</p>
+次は、<a href="/blog/%E6%8A%80%E8%A1%93/2019/12/01/AWS3.html">3.EC2構築編</a>です。<br />
+<br /></p>
 
 <h2 id="6-引用参考元">6. 引用・参考元</h2>
 <p><a href="https://aws.amazon.com/jp/">https://aws.amazon.com/jp/</a></p>
 
-<p><br /></p>
+<p><br /><center>◇◇◇◇◇◇◇◇◇◇</center><br /></p>
 <h3 id="お知らせ">お知らせ</h3>
 <p>筆者は、ITフリーランサーとして開発業務をするかたわら、ハラスメント・薄給・長時間労働に悩むエンジニアのために転職支援をしています。<br />
 私と同じフリーランサーになって、給与UP・労働条件の改善・スキルアップを目指してみませんか？<br />
@@ -102,7 +126,7 @@
 <p><br /></p>
 <h3 id="筆者について">筆者について</h3>
 
-<p><a href="https://note.mu/kuyo/n/n129f7f3711ce"><img src="/blog/images/common/self.png" width="32px" /></a> <a href="https://note.mu/kuyo/n/n129f7f3711ce">自己紹介</a></p>
+<p><a href="/blog/%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B/2019/09/01/hello1.html"><img src="/blog/images/common/self.png" width="32px" /></a> <a href="/blog/%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B/2019/09/01/hello1.html">自己紹介</a></p>
 
 <p><a href="https://twitter.com/kury0r"><img src="/blog/images/common/twitter.png" width="32px" /></a> <a href="https://twitter.com/kury0r">@kury0r</a></p>
 

@@ -1,136 +1,171 @@
-I"u*<p><img src="/blog/images/page_headder/aws.jpg" alt="" /><br /><br /></p>
+I"�,<p><img src="/blog/images/page_headder/aws.jpg" alt="" /><br /><br /></p>
 
 <h2 id="0-記事一覧">0. 記事一覧</h2>
 
-<p><a href="https://note.mu/kuyo/n/n49b56b1448b1">初心者のためのAWSの使い方（1.初期設定編）</a><br />
-<a href="https://note.mu/kuyo/n/n1c7f3dbde56a">初心者のためのAWSの使い方（2.S3構築編）</a><br />
-<a href="https://note.mu/kuyo/n/nf61f02fafc6a">初心者のためのAWSの使い方（3.EC2構築編）</a>【前の記事】<br />
-初心者のためのAWSの使い方（4.Cloud9導入編）</p>
+<p><a href="/blog/%E6%8A%80%E8%A1%93/2019/10/01/AWS1.html">初心者のためのAWSの使い方①　- 初期設定編 -</a><br />
+<a href="/blog/%E6%8A%80%E8%A1%93/2019/11/01/AWS2.html">初心者のためのAWSの使い方②　-  S3構築編 -</a><br />
+<a href="/blog/%E6%8A%80%E8%A1%93/2019/12/01/AWS3.html">初心者のためのAWSの使い方③　- EC2構築編 -</a><br />
+初心者のためのAWSの使い方④　- Cloud9導入編 -<br />
+<br /></p>
 
 <h2 id="1-はじめに">1. はじめに</h2>
 
 <p>無料で始められるAWSですが、いざ始めようとすると、「まず何をすれば良いの？」となったりします。<br />
 そこで、初期設定・S3・EC2・Cloud9の設定について、まとめた記事を作りました。<br />
-<a href="https://note.mu/kuyo/n/n49b56b1448b1">1.初期設定編</a>・<a href="https://note.mu/kuyo/n/n1c7f3dbde56a">2.S3構築編</a>・<a href="https://note.mu/kuyo/n/nf61f02fafc6a">3.EC2構築編</a>と長編記事ですが、上から下へと手順通り進めていけば、AWS環境が出来るかと思います。<br />
-また、<a href="https://note.mu/kuyo/n/n44483fd3922d">4.Cloud9導入編</a>は、お好みでどうぞ。<br />
+<a href="/blog/%E6%8A%80%E8%A1%93/2019/10/01/AWS1.html">1.初期設定編</a>・<a href="/blog/%E6%8A%80%E8%A1%93/2019/11/01/AWS2.html">2.S3構築編</a>・<a href="/blog/%E6%8A%80%E8%A1%93/2019/12/01/AWS3.html">3.EC2構築編</a>と長編記事ですが、上から下へと手順通り進めていけば、AWS環境が出来るかと思います。<br />
+また、<a href="/blog/%E6%8A%80%E8%A1%93/2020/01/01/AWS4.html">4.Cloud9導入編</a>は、お好みでどうぞ。<br />
 なお、本記事は「とりあえず、AWS環境を構築したい！」を目的としているため、各設定項目の説明は割愛させてもらってます。</p>
 
-<p>では、<a href="https://note.mu/kuyo/n/n44483fd3922d">4.Cloud9導入編</a>の開始です！</p>
+<p>では、<a href="/blog/%E6%8A%80%E8%A1%93/2020/01/01/AWS4.html">4.Cloud9導入編</a>の開始です！<br />
+<br /></p>
 
 <h2 id="2-前提">2. 前提</h2>
 <p>本記事は、AWS 無料利用枠を利用しています。<br />
 本記事の手順を実施するには、以下の記事で設定した環境が必要です。</p>
 
 <blockquote>
-  <p>・<a href="https://note.mu/kuyo/n/n49b56b1448b1">初心者のためのAWSの使い方（1.初期設定編）</a><br />
-・<a href="https://note.mu/kuyo/n/n1c7f3dbde56a">初心者のためのAWSの使い方（2.S3構築編）</a><br />
-・<a href="https://note.mu/kuyo/n/nf61f02fafc6a">初心者のためのAWSの使い方（3.EC2構築編）</a></p>
+  <ul>
+    <li><a href="/blog/%E6%8A%80%E8%A1%93/2019/10/01/AWS1.html">初心者のためのAWSの使い方（1.初期設定編）</a></li>
+    <li><a href="/blog/%E6%8A%80%E8%A1%93/2019/11/01/AWS2.html">初心者のためのAWSの使い方（2.S3構築編）</a></li>
+    <li><a href="/blog/%E6%8A%80%E8%A1%93/2019/12/01/AWS3.html">初心者のためのAWSの使い方（3.EC2構築編）</a></li>
+  </ul>
 </blockquote>
 
 <p>本記事の手順を実施にあたり、以下の知識が必要です。</p>
 
 <blockquote>
-  <p>・ターミナル・SSHクライアントの操作<br />
-・linuxコマンド（ls,cd,viなど）</p>
+  <ul>
+    <li>ターミナル・SSHクライアントの操作</li>
+    <li>linuxコマンド（ls, cd, viなど）</li>
+  </ul>
 </blockquote>
 
-<p>この記事では、Java・Pythonといった開発言語やDBMSの構築は行いません。</p>
+<p>この記事では、Java・Pythonといった開発言語やDBMSの構築は行いません。<br />
+<br /></p>
 
 <h2 id="3-環境">3. 環境</h2>
 <p>本記事は、以下の環境でAWSを構築しています。</p>
 
 <blockquote>
-  <p>・PC：macOS Mojave 10.14<br />
-・ブラウザ：Google Chrome</p>
+  <ul>
+    <li>PC：macOS Mojave 10.14</li>
+    <li>ブラウザ：Google Chrome</li>
+  </ul>
 </blockquote>
+
+<p><br /></p>
 
 <h2 id="4cloud9の導入">4.Cloud9の導入</h2>
 <p>Cloud9は、アプリケーションの開発などをクラウド環境で利用できるIDE（統合開発環境）サービスです。<br />
 これがあると、同一の開発環境が、どのPCでも使えるという便利なものです。<br />
-それでは、本記事の手順に従いCloud9の導入を行ってください。</p>
+それでは、本記事の手順に従いCloud9の導入を行ってください。<br />
+<br /></p>
 
 <h2 id="nodejsのインストール">Node.jsのインストール</h2>
-<p>Node.jsを使うのでインストールする。</p>
+<p>Node.jsを使うのでインストールする。<br />
+<br /></p>
 
-<h2 id="sshでec2に接続">・SSHでEC2に接続</h2>
-
+<h3 id="sshでec2に接続">SSHでEC2に接続</h3>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh -i "~/.ssh/{キーペア名}.pem" ec2-user@{パブリックDNS}
 </code></pre></div></div>
+<p><br /></p>
 
-<h2 id="nodejsのインストール-1">・Node.jsのインストール</h2>
+<h3 id="nodejsのインストール-1">Node.jsのインストール</h3>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ curl -sL https://rpm.nodesource.com/setup_12.x | sudo bash -
 $ sudo yum install -y nodejs
 $ npm -v
 6.10.2
 </code></pre></div></div>
+<p><br /></p>
 
-<h2 id="cloud9のインストール">Cloud9のインストール</h2>
+<h3 id="cloud9のインストール">Cloud9のインストール</h3>
 <p>ログインを行ったら、「サービス」をクリックし、「Cloud9」を選択する。</p>
 
-<p><img src="/blog/images/aws4/FireShot Capture 104 - インスタンス - EC2 Management Console - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws4/FireShot Capture 104 - インスタンス - EC2 Management Console - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="環境作成の開始">・環境作成の開始</h2>
+<h3 id="環境作成の開始">環境作成の開始</h3>
 <p>「Create environment」をクリックする。</p>
 
-<p><img src="/blog/images/aws4/FireShot Capture 105 - Welcome to AWS Cloud9 - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws4/FireShot Capture 105 - Welcome to AWS Cloud9 - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="cloud9環境名の入力">・Cloud9環境名の入力</h2>
+<h3 id="cloud9環境名の入力">Cloud9環境名の入力</h3>
 <p>「Name」に、Cloud9で使用する環境名の入力を行い、「Next Step」をクリックする。</p>
 
-<p><img src="/blog/images/aws4/FireShot Capture 107 - Create a new environment - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws4/FireShot Capture 107 - Create a new environment - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="configure-settings">・Configure settings</h2>
+<h3 id="configure-settings">Configure settings</h3>
 <p>以下の通りに設定する。</p>
 
 <p><img src="/blog/images/aws4/FireShot Capture 113 - Create a new environment - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <blockquote>
-  <p>・「Environment type」は、「Connect and run in remote server (SSH)」を選択する。<br />
-・「User」に、ログインで使用するユーザ名を入力する。<br />
-・「Host」に、<a href="https://note.mu/kuyo/n/nf61f02fafc6a">3.EC2構築編</a>の「SSH接続」で作成した、パブリックDNSを入力する。<br />
-・「Port」に、<a href="https://note.mu/kuyo/n/nf61f02fafc6a">3.EC2構築編</a>の「セキュリティグループの設定」で作成した、「SSHのルール」の「ポート範囲」を入力する。</p>
+  <ul>
+    <li>「Environment type」は、「Connect and run in remote server (SSH)」を選択する。</li>
+    <li>「User」に、ログインで使用するユーザ名を入力する。</li>
+    <li>「Host」に、<a href="/blog/%E6%8A%80%E8%A1%93/2019/12/01/AWS3.html">3.EC2構築編</a>の「SSH接続」で作成した、パブリックDNSを入力する。</li>
+    <li>「Port」に、<a href="/blog/%E6%8A%80%E8%A1%93/2019/12/01/AWS3.html">3.EC2構築編</a>の「セキュリティグループの設定」で作成した、「SSHのルール」の「ポート範囲」を入力する。</li>
+  </ul>
 </blockquote>
+
+<p><br /></p>
 
 <p><img src="/blog/images/aws4/FireShot Capture 118 - Create a new environment - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
 
 <blockquote>
-  <p>・「View public SSH key」の「Copy key to clipboard」をクリックし、SSH keyをコピーする。<br />
-・SSHでEC2に接続する。</p>
+  <ul>
+    <li>「View public SSH key」の「Copy key to clipboard」をクリックし、SSH keyをコピーする。</li>
+    <li>SSHでEC2に接続する。</li>
+  </ul>
 </blockquote>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ssh -i "~/.ssh/{キーペア名}.pem" ec2-user@{パブリックDNS}
 </code></pre></div></div>
 
 <blockquote>
-  <p>・viコマンドを使用し、「authorized_keys」を開く。</p>
+  <ul>
+    <li>viコマンドを使用し、「authorized_keys」を開く。</li>
+  </ul>
 </blockquote>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo vi ~/.ssh/authorized_keys
 </code></pre></div></div>
 
 <blockquote>
-  <p>・viコマンドで、コピーした「SSH key」を「authorized_keys」にペーストし、ファイルを保存する。<br />
-・SSHサービスを再起動する。</p>
+  <ul>
+    <li>viコマンドで、コピーした「SSH key」を「authorized_keys」にペーストし、ファイルを保存する。</li>
+    <li>SSHサービスを再起動する。</li>
+  </ul>
 </blockquote>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl restart sshd.service
 </code></pre></div></div>
 
 <blockquote>
-  <p>・SSHから、ブラウザの「Configure settings」に戻る。<br />
-・Cloud9の環境ファイルを保存するフォルダ「Environment path」を入力する。<br />
-・Node.jsの実行ファイルがあるパス「Node.js binary path」を入力する。</p>
+  <ul>
+    <li>SSHから、ブラウザの「Configure settings」に戻る。</li>
+    <li>Cloud9の環境ファイルを保存するフォルダ「Environment path」を入力する。</li>
+    <li>Node.jsの実行ファイルがあるパス「Node.js binary path」を入力する。</li>
+  </ul>
 </blockquote>
 
-<p>「Next step」をクリックする。</p>
+<p>「Next step」をクリックする。<br />
+<br /></p>
 
-<h2 id="確認">・確認</h2>
+<h3 id="確認">確認</h3>
 <p>内容を確認して「Create environment」をクリックする。</p>
 
-<p><img src="/blog/images/aws4/FireShot Capture 119 - Create a new environment - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws4/FireShot Capture 119 - Create a new environment - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
-<h2 id="インストールの開始">・インストールの開始</h2>
+<h3 id="インストールの開始">インストールの開始</h3>
 <p>「Next」をクリックする。</p>
 
 <p><img src="/blog/images/aws4/FireShot Capture 120 - AWSCloud9 - AWS Cloud9 - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
@@ -151,17 +186,20 @@ $ npm -v
 
 <p>「Finish」をクリックする。</p>
 
-<p><img src="/blog/images/aws4/FireShot Capture 125 - AWSCloud9 - AWS Cloud9 - ap-northeast-1.console.aws.amazon.com.png" alt="" /></p>
+<p><img src="/blog/images/aws4/FireShot Capture 125 - AWSCloud9 - AWS Cloud9 - ap-northeast-1.console.aws.amazon.com.png" alt="" />
+<br />
+<br /></p>
 
 <h2 id="5-終わりに">5. 終わりに</h2>
 <p>お疲れさまでした！<br />
-<a href="https://note.mu/kuyo/n/n44483fd3922d">4.Cloud9導入編</a>の導入を含め、AWSの構築は以上となります。<br />
-この環境を使って、Webサービスをたてるもよし、Java・Pythonを入れて開発環境を作るもよし、どこでも繋げるファイルストレージ環境を作るもよしです。</p>
+<a href="/blog/%E6%8A%80%E8%A1%93/2020/01/01/AWS4.html">4.Cloud9導入編</a>の導入を含め、AWSの構築は以上となります。<br />
+この環境を使って、Webサービスをたてるもよし、Java・Pythonを入れて開発環境を作るもよし、どこでも繋げるファイルストレージ環境を作るもよしです。<br />
+<br /></p>
 
 <h2 id="6-引用参考元">6. 引用・参考元</h2>
 <p><a href="https://aws.amazon.com/jp/">https://aws.amazon.com/jp/</a></p>
 
-<p><br /></p>
+<p><br /><center>◇◇◇◇◇◇◇◇◇◇</center><br /></p>
 <h3 id="お知らせ">お知らせ</h3>
 <p>筆者は、ITフリーランサーとして開発業務をするかたわら、ハラスメント・薄給・長時間労働に悩むエンジニアのために転職支援をしています。<br />
 私と同じフリーランサーになって、給与UP・労働条件の改善・スキルアップを目指してみませんか？<br />
@@ -175,7 +213,7 @@ $ npm -v
 <p><br /></p>
 <h3 id="筆者について">筆者について</h3>
 
-<p><a href="https://note.mu/kuyo/n/n129f7f3711ce"><img src="/blog/images/common/self.png" width="32px" /></a> <a href="https://note.mu/kuyo/n/n129f7f3711ce">自己紹介</a></p>
+<p><a href="/blog/%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B/2019/09/01/hello1.html"><img src="/blog/images/common/self.png" width="32px" /></a> <a href="/blog/%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B/2019/09/01/hello1.html">自己紹介</a></p>
 
 <p><a href="https://twitter.com/kury0r"><img src="/blog/images/common/twitter.png" width="32px" /></a> <a href="https://twitter.com/kury0r">@kury0r</a></p>
 
