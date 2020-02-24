@@ -28,7 +28,7 @@
 	list-style: none;
 
 	float: left;
-	margin:6px 15px 0 0;
+	margin:1px 15px 0 0;
 }
 .page .twitter-msg {
 	margin:20px auto;
@@ -92,12 +92,11 @@
 
 <div class="page">
 <div class="email">
-    <a href="mailto:mailto:gyoren10+freelance@gmail.com?subject=フリーランス査定&body=査定を希望します。%0D%0A%0D%0A※このままご返信ください。%0D%0A後ほど、筆者からメールを送信いたします。"><img src="{{ site.baseurl}}/images/common/gmail.png" width="20px"></a>
-    <a href="mailto:mailto:gyoren10+freelance@gmail.com?subject=フリーランス査定&body=査定を希望します。%0D%0A%0D%0A※このままご返信ください。%0D%0A後ほど、筆者からメールを送信いたします。" title="メールする">メールする</a>
+    <a href="mailto:gyoren10+freelance@gmail.com?subject=フリーランス査定&body=査定を希望します。%0D%0A%0D%0A※このままご返信ください。%0D%0A後ほど、筆者からメールを送信いたします。"><img src="{{ site.baseurl}}/images/common/gmail.png" width="20px"></a>
+    <a href="mailto:gyoren10+freelance@gmail.com?subject=フリーランス査定&body=査定を希望します。%0D%0A%0D%0A※このままご返信ください。%0D%0A後ほど、筆者からメールを送信いたします。" title="メールする">メールする</a>
 </div>
 <div class="line">
-    <div class="line-it-button" data-lang="ja" data-type="friend" data-lineid="736jrlfx" style="display: none;"></div>
-    <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+    <a href="http://nav.cx/1kschII"><img src="{{ site.baseurl}}/images/common/line.png" width="95px"></a>
 </div>
 <div class="twitter">
     <a href="https://twitter.com/messages/compose?recipient_id=1165999852842442753&ref_src=twsrc%5Etfw" class="twitter-dm-button" data-size="small" data-text="査定をお願いします。" data-show-screen-name="false" data-screen-name="kury0r" data-show-count="false">Message @kury0r</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
