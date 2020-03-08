@@ -1,11 +1,12 @@
-I"�	<ul class="tags-box">
+I"�
+<ul class="tags-box">
 
 
 <a href="#自己紹介" title="自己紹介" rel="1">自己紹介<span class="size"> 1</span></a>
 
 <a href="#転職" title="転職" rel="1">転職<span class="size"> 1</span></a>
 
-<a href="#技術" title="技術" rel="5">技術<span class="size"> 5</span></a>
+<a href="#技術" title="技術" rel="6">技術<span class="size"> 6</span></a>
 
 <a href="#フリーランス" title="フリーランス" rel="1">フリーランス<span class="size"> 1</span></a>
 
@@ -26,6 +27,9 @@
 
 
 <li id="技術">技術</li>
+
+<time datetime="2020-03-08">2020-03-08</time> &raquo;
+<a href="/blog/%E6%8A%80%E8%A1%93/2020/03/08/spark.html" title="よく忘れるシリーズ Apache Spark版">よく忘れるシリーズ Apache Spark版</a><br />
 
 <time datetime="2020-02-01">2020-02-01</time> &raquo;
 <a href="/blog/%E6%8A%80%E8%A1%93/2020/02/01/linux_command.html" title="Linuxで、よく忘れるコマンド">Linuxで、よく忘れるコマンド</a><br />

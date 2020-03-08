@@ -1,0 +1,191 @@
+I")<p><img src="/blog/images/page_headder/programming.jpg" alt="" /><br /><br /></p>
+<h2 id="1-はじめに">1. はじめに</h2>
+<p>筆者が忘れるシリーズのSpark版です。<br />
+どうも、JavaでのDataFlameのJoinの仕方を忘れてしまいます。<br />
+<br /></p>
+
+<h2 id="2-環境">2. 環境</h2>
+<p>本記事は、以下の環境で動作は確認しています。</p>
+
+<blockquote>
+  <p>・Amazon Linux<br />
+・Ubuntu</p>
+</blockquote>
+
+<p><br /></p>
+<h2 id="3-いつも忘れてしまう方々">3. いつも忘れてしまう方々</h2>
+<p>コーディングが止まってしまい、困っちゃいます。<br />
+<br /></p>
+
+<h2 id="import">Import</h2>
+<p>以下をインポートしましょう。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.apache.spark.sql.Dataset</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.spark.sql.Row</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="filter">Filter</h2>
+<p>条件を絞って、行を出力します。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Dataset</span><span class="o">&lt;</span><span class="nc">Row</span><span class="o">&gt;</span> <span class="n">dfResult</span> <span class="o">=</span> <span class="n">dfSource</span><span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="s">"{列名}='{条件}'"</span><span class="o">);</span>
+</code></pre></div></div>
+<p>もちろん ANDしたり、</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Dataset</span><span class="o">&lt;</span><span class="nc">Row</span><span class="o">&gt;</span> <span class="n">dfResult</span> <span class="o">=</span> <span class="n">dfSource</span>
+	<span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="s">"{列名}='{条件}' AND {列名}='{条件}'"</span><span class="o">);</span>
+</code></pre></div></div>
+<p>ORやNOTしたりもできます。</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Dataset</span><span class="o">&lt;</span><span class="nc">Row</span><span class="o">&gt;</span> <span class="n">dfResult</span> <span class="o">=</span> <span class="n">dfSource</span>
+	<span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="s">"{列名}='{条件}' OR {列名}&lt;&gt;'{条件}'"</span><span class="o">);</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="join">Join</h2>
+<p>Joinです。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Dataset</span><span class="o">&lt;</span><span class="nc">Row</span><span class="o">&gt;</span> <span class="n">dfResult</span> <span class="o">=</span> <span class="n">dfSource1</span>
+	<span class="o">.</span><span class="na">join</span><span class="o">(</span><span class="n">dfSource2</span><span class="o">,</span>
+	      <span class="n">dfSource1</span><span class="o">.</span><span class="na">col</span><span class="o">(</span><span class="s">"{列名}"</span><span class="o">).</span><span class="na">equalTo</span><span class="o">(</span><span class="n">dfSource2</span><span class="o">.</span><span class="na">col</span><span class="o">(</span><span class="s">"{列名}"</span><span class="o">)))</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="列名の変更">列名の変更</h2>
+<p>Joinして列名が同じになったりした時に、列名を変えれます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Dataset</span><span class="o">&lt;</span><span class="nc">Row</span><span class="o">&gt;</span> <span class="n">dfResult</span> <span class="o">=</span> <span class="n">dfSource1</span>
+	<span class="o">.</span><span class="na">withColumnRenamed</span><span class="o">(</span><span class="s">"{旧列名}"</span><span class="o">,</span> <span class="s">"{新列名}"</span><span class="o">);</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="重複列の削除">重複列の削除</h2>
+<p>JoinするとID項目なんかが二重になっちゃいますが、それをひとつにしてくれます。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Dataset</span><span class="o">&lt;</span><span class="nc">Row</span><span class="o">&gt;</span> <span class="n">dfResult</span> <span class="o">=</span> <span class="n">dfResult</span><span class="o">.</span><span class="na">dropDuplicates</span><span class="o">(</span><span class="s">"{新列名}"</span><span class="o">);</span>
+</code></pre></div></div>
+<p>もしくは</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Dataset</span><span class="o">&lt;</span><span class="nc">Row</span><span class="o">&gt;</span> <span class="n">dfResult</span> <span class="o">=</span> <span class="n">dfResult</span><span class="o">.</span><span class="na">distinct</span><span class="o">();</span>
+</code></pre></div></div>
+<p><br /></p>
+
+<h2 id="4-終わりに">4. 終わりに</h2>
+<p>個人的にですけど、Spark は Pythonで使うのが良いですかね。</p>
+
+<style>
+.page .common {
+	margin:20px auto;
+	padding:0;
+	overflow: hidden;
+	list-style: none;
+
+	float: left;
+	margin:0 10px 0 0;
+}
+.page .facebook {
+  display: inline-block;
+  vertical-align: top;
+}
+.page .email {
+	margin:20px auto;
+	padding:0;
+	overflow: hidden;
+	list-style: none;
+
+	float: left;
+	margin:1px 15px 0 0;
+}
+.page .line {
+	margin:20px auto;
+	padding:0;
+	overflow: hidden;
+	list-style: none;
+
+	float: left;
+	margin:1px 15px 0 0;
+}
+.page .twitter-msg {
+	margin:20px auto;
+	padding:0;
+	overflow: hidden;
+	list-style: none;
+
+	float: left;
+	margin:0 10px 0 0;
+	overflow: hidden;
+	width:90px;
+}
+.page .self {
+	margin:20px auto;
+	padding:0;
+	overflow: hidden;
+	list-style: none;
+
+	float: left;
+	margin:0 25px 0 0;
+	overflow: hidden;
+	width:90px;
+}
+.page .twitter-flw {
+	margin:20px auto;
+	padding:0;
+	overflow: hidden;
+	list-style: none;
+
+	float: left;
+	margin:5px 10px 0 0;
+	overflow: hidden;
+	width:90px;
+}
+</style>
+
+<p><br /></p>
+<div class="page">
+<div class="common">
+  <div class="line-it-button" data-lang="ja" data-type="like" data-url="https://yori1111.github.io/blog/" data-share="true" data-lineid="736jrlfx" style="display: none;"></div>
+  <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+</div>
+<div class="common">
+  <div class="line-it-button" data-lang="ja" data-type="share-a" data-ver="3" data-url="https://yori1111.github.io/blog/" data-color="default" data-size="small" data-count="false" style="display: none;"></div>
+  <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+</div>
+<div class="common">
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="small" data-text="この記事いいね！" data-related="" data-show-count="false">Tweet</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div class="facebook">
+  <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fyori1111.github.io%2Fblog%2F&amp;width=93&amp;layout=button&amp;action=like&amp;size=small&amp;share=false&amp;height=65&amp;appId" width="93" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+</div>
+</div>
+
+<center>◇◇◇◇◇◇◇◇◇◇</center>
+<p><br /></p>
+<h3 id="お知らせ">お知らせ</h3>
+<p>筆者は、ITフリーランサーとして開発業務をするかたわら、ハラスメント・薄給・長時間労働に悩むエンジニアのために転職支援をしています。<br />
+私と同じフリーランサーになって、給与UP・労働条件の改善・スキルアップを目指してみませんか？<br />
+高齢である・転職回数が多い・技術力に自信がない方でも、IT業界の経験が1年半以上あれば、フリーランサーになれますので、心配せずにご連絡ください。<br />
+まずは、LINEもしくはメールを頂ければ、皆様の気になる月額収入（お給料）の査定をいたします。</p>
+
+<div class="page">
+<div class="email">
+    <a href="mailto:gyoren10+freelance@gmail.com?subject=フリーランス査定&amp;body=査定を希望します。%0D%0A%0D%0A※このままご返信ください。%0D%0A後ほど、筆者からメールを送信いたします。"><img src="/blog/images/common/gmail.png" width="20px" /></a>
+    <a href="mailto:gyoren10+freelance@gmail.com?subject=フリーランス査定&amp;body=査定を希望します。%0D%0A%0D%0A※このままご返信ください。%0D%0A後ほど、筆者からメールを送信いたします。" title="メールする">メールする</a>
+</div>
+<div class="line">
+    <a href="http://nav.cx/1kschII"><img src="/blog/images/common/line.png" width="95px" /></a>
+</div>
+<div class="twitter">
+    <a href="https://twitter.com/messages/compose?recipient_id=1165999852842442753&amp;ref_src=twsrc%5Etfw" class="twitter-dm-button" data-size="small" data-text="査定をお願いします。" data-show-screen-name="false" data-screen-name="kury0r" data-show-count="false">Message @kury0r</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div>
+<p><br /></p>
+<h3 id="筆者について">筆者について</h3>
+<div class="page">
+<div class="self">
+  <a href="/blog/%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B/2019/09/01/hello1.html"><img src="/blog/images/common/self.png" width="20px" /></a>
+  <a href="/blog/%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B/2019/09/01/hello1.html">自己紹介</a>
+</div>
+<div class="twitter-flw">
+  <a href="https://twitter.com/kury0r?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="small" data-show-screen-name="false" data-show-count="false">Follow @kury0r</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div>
+<p><br /></p>
+
+:ET
