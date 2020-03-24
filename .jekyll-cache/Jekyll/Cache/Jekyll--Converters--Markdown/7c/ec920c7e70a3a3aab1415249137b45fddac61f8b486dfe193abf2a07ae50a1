@@ -1,4 +1,4 @@
-I"(<p><img src="/blog/images/page_headder/good_agent.jpg" alt="" /><br /><br /></p>
+I"�'<p><img src="/blog/images/page_headder/good_agent.jpg" alt="" /><br /><br /></p>
 
 <p>みなさん、フリーランサーの収入が気になりませんか。<br />
 同じエージェントに所属するエンジニアの「前職の収入」と「フリーランサーになった時の収入」を一例としてあげてみました。<br />
@@ -20,7 +20,7 @@
     <tr>
       <td style="text-align: center">26</td>
       <td style="text-align: center">480万円</td>
-      <td style="text-align: center"><font color="OrangeRed">540万円<br />（↑60万円）</font></td>
+      <td style="text-align: center"><strong>540万円<br />（↑60万円）</strong></td>
       <td style="text-align: center">Java,Oracle,<br />SQLServer,MySQL</td>
       <td style="text-align: center">PL</td>
       <td style="text-align: center">PG,評価</td>
@@ -29,7 +29,7 @@
     <tr>
       <td style="text-align: center">26</td>
       <td style="text-align: center">330万円</td>
-      <td style="text-align: center"><font color="OrangeRed">650万円<br />（↑320万円）</font></td>
+      <td style="text-align: center"><strong>650万円<br />（↑320万円）</strong></td>
       <td style="text-align: center">Java,Oracle</td>
       <td style="text-align: center">PL</td>
       <td style="text-align: center">PG,評価</td>
@@ -38,7 +38,7 @@
     <tr>
       <td style="text-align: center">28</td>
       <td style="text-align: center">360万円</td>
-      <td style="text-align: center"><font color="OrangeRed">650万円<br />（↑360万円）</font></td>
+      <td style="text-align: center"><strong>650万円<br />（↑360万円）</strong></td>
       <td style="text-align: center">Java,C#,<br />VB,Oracle,<br />SQLServer,MySQL</td>
       <td style="text-align: center">PG</td>
       <td style="text-align: center">内部,PG,評価</td>
@@ -47,7 +47,7 @@
     <tr>
       <td style="text-align: center">28</td>
       <td style="text-align: center">400万円</td>
-      <td style="text-align: center"><font color="OrangeRed">730万円<br />（↑416万円）</font></td>
+      <td style="text-align: center"><strong>730万円<br />（↑416万円）</strong></td>
       <td style="text-align: center">Java,Oracle,<br />PostgreSQL</td>
       <td style="text-align: center">PL</td>
       <td style="text-align: center">要件定義,外部,<br />内部,PG,評価</td>
@@ -56,7 +56,7 @@
     <tr>
       <td style="text-align: center">31</td>
       <td style="text-align: center">390万円</td>
-      <td style="text-align: center"><font color="OrangeRed">810万円<br />（↑510万円）</font></td>
+      <td style="text-align: center"><strong>810万円<br />（↑510万円）</strong></td>
       <td style="text-align: center">Java,Oracle</td>
       <td style="text-align: center">PG</td>
       <td style="text-align: center">要件定義,外部,<br />内部,PG,評価</td>
@@ -65,7 +65,7 @@
     <tr>
       <td style="text-align: center">32</td>
       <td style="text-align: center">400万円</td>
-      <td style="text-align: center"><font color="OrangeRed">540万円<br />（↑110万円）</font></td>
+      <td style="text-align: center"><strong>540万円<br />（↑110万円）</strong></td>
       <td style="text-align: center">C#,VBA,<br />Oracle,SQLServer</td>
       <td style="text-align: center">PL</td>
       <td style="text-align: center">外部,PG,評価</td>
@@ -74,7 +74,7 @@
     <tr>
       <td style="text-align: center">33</td>
       <td style="text-align: center">600万円</td>
-      <td style="text-align: center"><font color="OrangeRed">710万円<br />（↑100万円）</font></td>
+      <td style="text-align: center"><strong>710万円<br />（↑100万円）</strong></td>
       <td style="text-align: center">C#,Access,<br />Oracle,SQLServer</td>
       <td style="text-align: center">PL</td>
       <td style="text-align: center">要件定義,外部,<br />内部,PG,評価</td>
@@ -83,7 +83,7 @@
     <tr>
       <td style="text-align: center">36</td>
       <td style="text-align: center">500万円</td>
-      <td style="text-align: center"><font color="OrangeRed">810万円<br />（↑310万円）</font></td>
+      <td style="text-align: center"><strong>810万円<br />（↑310万円）</strong></td>
       <td style="text-align: center">Java,C#,<br />PHP,VB.net,<br />Access,Oracle,<br />SQLServer,PostgreSQL,<br />MySQL</td>
       <td style="text-align: center">PL</td>
       <td style="text-align: center">要件定義,外部,<br />内部,PG,評価</td>
